@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\JobRequest;
 use App\Services\JobService;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class JobController extends Controller
         $this->jobService = $jobService;
     }
 
-    public function store(Request $request)
+    public function store(JobRequest $request)
     {
         $newJob = $this->jobService->newJob($request->all());
 
