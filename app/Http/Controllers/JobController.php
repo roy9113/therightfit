@@ -7,8 +7,6 @@ use App\Http\Requests\JobRequest;
 use App\Http\Requests\UpdateJobRequest;
 use App\Models\Job;
 use App\Services\JobService;
-use http\Env\Response;
-use Illuminate\Http\Request;
 
 class JobController extends Controller
 {
