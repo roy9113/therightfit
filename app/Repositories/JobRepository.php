@@ -7,6 +7,10 @@ use App\Repositories\Contracts\JobRepositoryContract;
 
 class JobRepository implements JobRepositoryContract
 {
+    /**
+     * @param array $data
+     * @return Job|mixed|string
+     */
     public function newJob(array $data)
     {
         try
@@ -23,6 +27,10 @@ class JobRepository implements JobRepositoryContract
         }
     }
 
+    /**
+     * @param array $data
+     * @return mixed|string
+     */
     public function updateJob(array $data)
     {
         try

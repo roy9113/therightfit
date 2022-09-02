@@ -13,6 +13,10 @@ class JobService
         $this->jobRepositoryContract = $jobRepositoryContract;
     }
 
+    /**
+     * @param array $data
+     * @return mixed
+     */
     public function newJob(array $data)
     {
         $data = [
@@ -28,6 +32,10 @@ class JobService
         return $newJob;
     }
 
+    /**
+     * @param array $data
+     * @return mixed
+     */
     public function updateJob(array $data)
     {
         $data = [
