@@ -17,5 +17,7 @@ use App\Http\Controllers\JobController;
 
 Route::group(['prefix' => 'jobs'], function ()
 {
+    Route::get('all', [JobController::class, 'index']);
     Route::post('store/new-job', [JobController::class, 'store']);
+    Route::put('update/job', [JobController::class, 'update']);
 });

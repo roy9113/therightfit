@@ -27,4 +27,19 @@ class JobService
 
         return $newJob;
     }
+
+    public function updateJob(array $data)
+    {
+        $data = [
+            'id' => $data['id'],
+            'title' => $data['title'],
+            'description' => $data['description'],
+            'location' => $data['location'],
+            'rate' => $data['rate']
+        ];
+
+        $updateJob = $this->jobRepositoryContract->updateJob($data);
+
+        return $updateJob;
+    }
 }

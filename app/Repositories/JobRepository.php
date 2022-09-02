@@ -22,4 +22,20 @@ class JobRepository implements JobRepositoryContract
             return $e->getMessage();
         }
     }
+
+    public function updateJob(array $data)
+    {
+        try
+        {
+            $updateJob = Job::find($data['id']);
+            $updateJob->fill($data);
+            $updateJob->save();
+
+            return $updateJob;
+        }
+        catch (\Exception $e)
+        {
+            return $e->getMessage();
+        }
+    }
 }

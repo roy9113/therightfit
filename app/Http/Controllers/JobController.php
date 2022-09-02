@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Helpers\ResponseHelper;
 use App\Http\Requests\JobRequest;
+use App\Http\Requests\UpdateJobRequest;
+use App\Models\Job;
 use App\Services\JobService;
+use http\Env\Response;
 use Illuminate\Http\Request;
 
 class JobController extends Controller
@@ -18,9 +21,21 @@ class JobController extends Controller
         $this->responseHelper = $responseHelper;
     }
 
+    public function index()
+    {
+        $jobs = Job::all();
+        return $this->responseHelper->successResponse('success', 'All jobs', ['jobs' => $jobs]);
+    }
+
     public function store(JobRequest $request)
     {
         $newJob = $this->jobService->newJob($request->all());
-        return $this->responseHelper->successResponse('success', 'New post successfully created', ['newJob' => $newJob]);
+        return $this->responseHelper->successResponse('success', 'New job successfully created', ['newJob' => $newJob]);
+    }
+
+    public function update(UpdateJobRequest $request)
+    {
+        $updateJob = $this->jobService->updateJob($request->all());
+        return $this->responseHelper->successResponse(true, 'Job successfully updated', ['updateJob' => $updateJob]);
     }
 }
